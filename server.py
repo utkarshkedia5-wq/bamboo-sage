@@ -128,34 +128,6 @@ async def chat(req: ChatRequest, request: Request):
 
 
 # ─── SARVAM AI PROXY ──────────────────────────────────────────────────────────
-"""
-#@app.post("/api/stt")
-#async def speech_to_text(request: Request):
-   #Proxy Sarvam AI Speech-to-Text.
-   # form = await request.form()
-   # audio_file = form.get("file")
-   # language_code = form.get("language_code", "hi-IN")
-
-   # async with httpx.AsyncClient() as http_client:
-    #    files = {"file": (audio_file.filename, await audio_file.read(), "audio/webm")}
-    #    data = {"language_code": language_code}
-    #    headers = {"api-subscription-key": SARVAM_API_KEY}
-#
-      #  res = await http_client.post(
-     #       "https://api.sarvam.ai/speech-to-text",
-       #     headers=headers, files=files, data=data, timeout=15
-       # )
-       # return res.json()
-
-
-#class TTSRequest(BaseModel):
-    #text: str
-    #language_code: str = "hi-IN"
-    #speaker: str = "meera"
-       """
-
-
-
 
 
 @app.post("/api/stt")
@@ -252,27 +224,6 @@ async def text_to_speech(req: TTSRequest):
     
     
 
-   """ 
-@app.post("/api/tts")
-async def text_to_speech(req: TTSRequest):
-    """Proxy Sarvam AI Text-to-Speech."""
-    async with httpx.AsyncClient() as http_client:
-        headers = {
-            "api-subscription-key": SARVAM_API_KEY,
-            "Content-Type": "application/json"
-        }
-        payload = {
-            "inputs": [req.text],
-            "target_language_code": req.language_code,
-            "speaker": req.speaker,
-            "speech_sample_rate": 22050
-        }
-        res = await http_client.post(
-            "https://api.sarvam.ai/text-to-speech",
-            headers=headers, json=payload, timeout=15
-        )
-        return res.json()
-        """
 
 
 # ─── ANALYTICS DASHBOARD ──────────────────────────────────────────────────────
