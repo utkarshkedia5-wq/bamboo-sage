@@ -131,7 +131,7 @@ async def chat(req: ChatRequest, request: Request):
 """
 #@app.post("/api/stt")
 #async def speech_to_text(request: Request):
-   """Proxy Sarvam AI Speech-to-Text."""
+   #Proxy Sarvam AI Speech-to-Text.
    # form = await request.form()
    # audio_file = form.get("file")
    # language_code = form.get("language_code", "hi-IN")
